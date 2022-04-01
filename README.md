@@ -5,7 +5,7 @@
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/zubairehman/dart_introduction.git
+https://github.com/JoaoRodriguesRD/dart_introduction.git
 ```
 
 **Step 2: Install Dart**
