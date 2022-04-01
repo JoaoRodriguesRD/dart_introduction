@@ -1,0 +1,6 @@
+joao rodrigues, 2
+maria, 3
+leandro, 8
+adolfo, 10
+edinaldo, 5
+
