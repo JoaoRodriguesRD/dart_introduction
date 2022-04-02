@@ -31,36 +31,44 @@ String questao02() {
   print("Seu salario bruto é ${salarioMinimo * quantidadeSalarioMinimo} ");
   print(
       "Seu salario líquido é ${salarioMinimo * quantidadeSalarioMinimo * 0.7} ");
-      print("Até mais $nome!");
+  print("Até mais $nome!");
   return '';
 }
 
-/// 
+///
 /// pega o valor de um numero via input no terminal
-num getNum(String message){
+num getNum(String message) {
   print(message);
   String? number = stdin.readLineSync();
   return num.parse(number!);
 }
 
 String questao03() {
+  print("Entrou na 03");
   File('./csv/teste.txt').readAsString().then((String contents) {
+    print("Entrou no File");
     //print(contents);
     List<String> splitted = contents.split('\n');
-    
 
     num salarioMinimo = getNum("Digite o valor do salario mínimo: ");
 
-    splitted.forEach((element) => calcularSalario(element, salarioMinimo));
+    for (var element in splitted) {
+      //calcularSalario(element, salarioMinimo);
+      final nomeQuantidade = element.split(', ');
+      for (var el in nomeQuantidade) {
+        exibir(el, salarioMinimo);
+      }
+    }
   });
   return '';
 }
 
-String calcularSalario(String element, num salarioMinimo) {
-  final nomeQuantidade = element.split(', ');
-  nomeQuantidade.forEach((el) => exibir(el, salarioMinimo));
-  return '';
-}
+// String calcularSalario(String element, num salarioMinimo) {
+//   for (var el in nomeQuantidade) {
+//     exibir(el, salarioMinimo);
+//   }
+//   return '';
+// }
 
 String exibir(String element, num salarioMinimo) {
   if (element == "") {
