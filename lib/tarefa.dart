@@ -6,9 +6,9 @@ String questao01() {
   print("Digite sua idade:");
   String? id = stdin.readLineSync();
   num idade = num.parse(id!);
-  print("Sua idade: ${idade} ");
-  num dias_de_vida = idade * 365;
-  print("Sua idade em dias é ${dias_de_vida}");
+  print("Sua idade: $idade ");
+  num diasDeVida = idade * 365;
+  print("Olá $nome, sua idade em dias é $diasDeVida");
   return '';
 }
 
@@ -20,25 +20,23 @@ String? pegarNomeQuestao01() {
 
 String questao02() {
   print("------ CALCULAR SALARIO DE FUNCIONARIO ------ ");
-  num salario_minimo = getNum("Digite o valor do salario mínimo: ");
+  num salarioMinimo = getNum("Digite o valor do salario mínimo: ");
   print("Quantos salarios minimos recebe?");
-  String? QSM = stdin.readLineSync();
-  num quantidade_salario_minimo = num.parse(QSM!);
+  String? quantidade = stdin.readLineSync();
+  num quantidadeSalarioMinimo = num.parse(quantidade!);
 
   print("Nome do funcionario:");
   String? nome = stdin.readLineSync();
 
-  print("Seu salario bruto é ${salario_minimo * quantidade_salario_minimo} ");
+  print("Seu salario bruto é ${salarioMinimo * quantidadeSalarioMinimo} ");
   print(
-      "Seu salario líquido é ${salario_minimo * quantidade_salario_minimo * 0.7} ");
-      print("Até mais ${nome}!");
+      "Seu salario líquido é ${salarioMinimo * quantidadeSalarioMinimo * 0.7} ");
+      print("Até mais $nome!");
   return '';
 }
 
-/**
- * 
- * pega o valor de um numero via input no terminal
- */
+/// 
+/// pega o valor de um numero via input no terminal
 num getNum(String message){
   print(message);
   String? number = stdin.readLineSync();
@@ -51,27 +49,27 @@ String questao03() {
     List<String> splitted = contents.split('\n');
     
 
-    num salario_minimo = getNum("Digite o valor do salario mínimo: ");
+    num salarioMinimo = getNum("Digite o valor do salario mínimo: ");
 
-    splitted.forEach((element) => calcularSalario(element, salario_minimo));
+    splitted.forEach((element) => calcularSalario(element, salarioMinimo));
   });
   return '';
 }
 
-String calcularSalario(String element, num salario_minimo) {
-  final nome_quantidade = element.split(', ');
-  nome_quantidade.forEach((el) => exibir(el, salario_minimo));
+String calcularSalario(String element, num salarioMinimo) {
+  final nomeQuantidade = element.split(', ');
+  nomeQuantidade.forEach((el) => exibir(el, salarioMinimo));
   return '';
 }
 
-String exibir(String element, num salario_minimo) {
+String exibir(String element, num salarioMinimo) {
   if (element == "") {
   } else {
     if (int.tryParse(element) != null) {
-      num salario = int.parse(element) * salario_minimo;
-      print("Folha de pagamento: R\$ ${salario} (${element} salários mínimos)");
+      num salario = int.parse(element) * salarioMinimo;
+      print("Folha de pagamento: R\$ $salario ($element salários mínimos)");
     } else {
-      print("nome: ${element}");
+      print("nome: $element");
     }
   }
   return '';
@@ -113,9 +111,9 @@ String calcularTrocado(num money) {
       valor -= 1;
     }
   }
-  return '''Quantidade de notas de 100 = ${notas_100},
- Quantidade de notas de 50 = ${notas_50},
- Quantidade de notas de 10 = ${notas_10},
-  Quantidade de notas de 5 = ${notas_5},
-  Quantidade de notas de 1 = ${notas_1}''';
+  return '''Quantidade de notas de 100 = $notas_100,
+ Quantidade de notas de 50 = $notas_50,
+ Quantidade de notas de 10 = $notas_10,
+  Quantidade de notas de 5 = $notas_5,
+  Quantidade de notas de 1 = $notas_1''';
 }
