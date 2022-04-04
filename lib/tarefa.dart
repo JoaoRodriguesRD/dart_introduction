@@ -43,33 +43,24 @@ num getNum(String message) {
   return num.parse(number!);
 }
 
-String questao03() {
-  print("Entrou na 03");
-  File('./csv/teste.txt').readAsString().then((String contents) {
-    print("Entrou no File");
-    //print(contents);
-    List<String> splitted = contents.split('\n');
-
-    num salarioMinimo = getNum("Digite o valor do salario mínimo: ");
-
-    for (var element in splitted) {
-      //calcularSalario(element, salarioMinimo);
-      final nomeQuantidade = element.split(', ');
-      for (var el in nomeQuantidade) {
-        exibir(el, salarioMinimo);
-      }
+void questao03() {
+  List<String> contents = File('./csv/teste.txt').readAsLinesSync();
+  num salarioMinimo = getNum("Digite o valor do salario mínimo: ");
+  for (var line in contents) {
+    //print("look in line file: $line");
+    List<String> splitted = line.split(',');
+    for (var x in splitted) {
+      //print("look splitted file: $x");
+      exibir(x, salarioMinimo);
     }
-  });
-  return '';
+  }
 }
 
-// String calcularSalario(String element, num salarioMinimo) {
-//   for (var el in nomeQuantidade) {
-//     exibir(el, salarioMinimo);
-//   }
-//   return '';
-// }
-
+//
+//Exibe a folha de pagamento de acordo com o salario minimo fornecido
+//Se o elemento for uma string entao sera um nome, 
+//caso for um inteiro entao sera a quantidade de salarios que a pessoa recebe
+//OBS: essas regras foram feitas seguindo o nosso txt
 String exibir(String element, num salarioMinimo) {
   if (element == "") {
   } else {
